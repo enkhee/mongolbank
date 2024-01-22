@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { PT_Sans } from "next/font/google";
+import BaseLayout from "@/components/layout/baseLayout";
+import "bootstrap/dist/css/bootstrap.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const sans = PT_Sans({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={sans.className}>
+        <BaseLayout>{children}</BaseLayout>
+      </body>
     </html>
   );
 }
