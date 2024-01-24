@@ -6,7 +6,7 @@ export default function NotFound() {
       <h2>Page not found</h2>
       <p>Хуудас олдсонгүй</p>
       <p>
-        <Link href="/">Нүүр</Link>
+        <Link href="/public">Нүүр</Link>
       </p>
     </div>
   );
