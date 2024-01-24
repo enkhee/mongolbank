@@ -1,5 +1,6 @@
 import Link from "next/link";
 
-export default function Loader() {
+export default function Loading() {
+  console.log("loading");
   return <div>Уншиж байна ....</div>;
 }

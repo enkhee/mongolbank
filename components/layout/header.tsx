@@ -1,9 +1,16 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 export default function Header() {
+  const pathname = usePathname();
+  console.log(pathname);
   return (
     <div>
       <div className="container">
         <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-          <a
+          <Link
             href="/public"
             className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
           >
@@ -11,33 +18,49 @@ export default function Header() {
               <use></use>
             </svg>
             <span className="fs-4">Simple header</span>
-          </a>
+          </Link>
 
           <ul className="nav nav-pills">
             <li className="nav-item">
-              <a href="#" className="nav-link active" aria-current="page">
-                Home
-              </a>
+              <Link
+                href="/"
+                className={`${pathname === "/" ? "active" : ""} nav-link`}
+                aria-current="page"
+              >
+                Нүүр
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link">
-                Features
-              </a>
+              <Link
+                href="/news"
+                className={`${pathname === "/news" ? "active" : ""} nav-link`}
+              >
+                Мэдээ
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link">
-                Pricing
-              </a>
+              <Link
+                href="/products"
+                className={`${pathname === "/products" ? "active" : ""} nav-link`}
+              >
+                Бараа
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link">
-                FAQs
-              </a>
+              <Link
+                href="/about"
+                className={`${pathname === "/about" ? "active" : ""} nav-link`}
+              >
+                Бидний тухай
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link">
-                About
-              </a>
+              <Link
+                href="/contact"
+                className={`${pathname === "/contact" ? "active" : ""} nav-link`}
+              >
+                Холбоо барих
+              </Link>
             </li>
           </ul>
         </header>
