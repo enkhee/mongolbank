@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PT_Sans } from "next/font/google";
 import BaseLayout from "@/components/layout/baseLayout";
 import "bootstrap/dist/css/bootstrap.css";
+import Providers from "@/utils/provider";
 
 const sans = PT_Sans({
   weight: ["400", "700"],
@@ -22,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={sans.className}>
-        <BaseLayout>{children}</BaseLayout>
+        <Providers>
+          <BaseLayout>{children}</BaseLayout>
+        </Providers>
       </body>
     </html>
   );
