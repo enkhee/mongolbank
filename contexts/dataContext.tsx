@@ -18,7 +18,7 @@ interface DataProviderProps {
 
 export const DataProvider: FC<DataProviderProps> = ({ children }) => {
   const [storage, setStorage] = useState<DataStorage>({});
-  console.log("storage");
+
   const setValues = (values: DataStorage) => {
     setStorage((prevData) => ({
       ...prevData,

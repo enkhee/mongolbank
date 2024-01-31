@@ -1,22 +1,23 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import React from "react";
 import { DataProvider } from "@/contexts/dataContext";
-
+import { CartProvider } from "@/contexts/cart";
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from "@tanstack/react-query";
 function Providers({ children }: React.PropsWithChildren) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const [currentUrl, setCurrentUrl] = useState("" as string);
-  useEffect(() => {
-    const url = pathname + searchParams.toString();
-    setCurrentUrl(url);
-  }, [pathname, searchParams]);
-  console.log(currentUrl);
+  const queryClient = new QueryClient();
 
   return (
     <>
-      <DataProvider>{children}</DataProvider>
+      <QueryClientProvider client={queryClient}>
+        <CartProvider>
+          <DataProvider>{children}</DataProvider>
+        </CartProvider>
+      </QueryClientProvider>
     </>
   );
 }
