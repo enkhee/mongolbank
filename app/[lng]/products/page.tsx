@@ -12,21 +12,19 @@ export default function Products() {
 
   useEffect(() => {
     async function fetchProducts() {
-      // try {
-      const productsData = await fetch("/api/products?limit=12");
-      const data = await productsData.json();
-      setProducts(data?.data);
-      setIsLoading(false);
-      // } catch (error) {
-      //   setIsLoading(false);
-      //   console.error("Failed to fetch products:", error);
-      // }
+      try {
+        const productsData = await fetch("/api/products?limit=12");
+        const data = await productsData.json();
+        setProducts(data?.data);
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        console.error("Failed to fetch products:", error);
+      }
     }
 
     fetchProducts();
   }, []);
-
-  console.log(products);
 
   return (
     <div>

@@ -4,6 +4,6 @@ export async function GET(request: Request) {
 
   const res = await fetch(`https://fakestoreapi.com/products?limit=${limit}`);
   const data = await res.json();
-  console.log(data);
+
   return Response.json({ data });
 }

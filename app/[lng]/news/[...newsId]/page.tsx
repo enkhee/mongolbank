@@ -5,7 +5,5 @@ export default function NewsDetail({
 }: {
   params: { newsId: string[] };
 }) {
-  console.log(params);
-
   return <>Мэдэээ дэлгэрэнгүй</>;
 }
